@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="frontend_style.css">
+     <link rel="stylesheet" href="../CSS/frontend_style.css">
  	 <script src="copyright_update.js"></script>
 
     <title>Home</title>
@@ -14,6 +14,8 @@
   </head>
   <body>
   	<?php include "../HTML/navbar.html"; ?>
+<div id="main_image">
+<div id="mask">
 	<!--Eingabe Reiseziel-->
 	<form action="#.php">
 	Reiseziel<br>
@@ -83,7 +85,10 @@
 	</form>
 	
 	<!--Knopf Suche-->
-	<button type="button">Suchen</button>
+	<button type="button" id="search" name="search">Suchen</button>
+</div>
+</div>
+	<!--Including the footer-->
 	<?php include "../HTML/footer.html"; ?>
   </body>
 </html>
