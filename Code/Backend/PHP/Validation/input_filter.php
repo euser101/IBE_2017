@@ -1,12 +1,32 @@
 <?php
 	require "config.php";
 	session_start();
-
 try  
  {  
   
       if(isset($_POST[""]))
       {  
+        if(isset(($_POST[""])||isset($_POST[""])||isset($_POST[""]||isset($_POST[""])
+        {//Dynamic MQSQL
+            if ($_POST["Reiseziel"]) {
+              $query0 = "tbl_Ort AND tbl_land WHERE Name_Ort = $var OR Name_Land = $var";
+            }
+            if ($_POST["Preis"]) {
+              $query1 = "tbl_zimmer WHERE Preis < $var";
+            }
+            if ($_POST[""]) {
+              
+            }
+            if ($_POST[""]) {
+              
+            }
+            if ($_POST[""]) {
+              
+            }
+        }  else{
+          $errMsg = "Please input a value.";
+        }
+               
         //-- Defining variables/filters --//
 		$uInput1 = $_POST[""];
 		/*$uPreis = $_POST[""];*/
