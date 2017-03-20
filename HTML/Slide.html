@@ -4,21 +4,18 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../CSS/frontend_style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 <style> 
 #panel, #flip {
-	margin-left:20%;
-	margin-right:20%;
     padding: 5px;
-    background-color: #77AFE1;
+    text-align: center;
+    background-color: #e5eecc;
     border: solid 1px #c3c3c3;
 }
 
 #panel {
-    padding-top: 20px;
-    padding-bottom: 50px;
+    padding: 50px;
     display: none;
 }
 </style>
@@ -56,48 +53,12 @@
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
-<script> 
 
-</script>
-<script src="../JS/Bewertungen.js"></script>
 <script src="../JS/Hotelfeed.js"></script>
-
 </br>
 
-<div id="flip">Für Bewertungen und mehr Information klicken</div>
-<div id="panel">
-	4/5 Sternen <img src="../img/Stern.png" style="width:2%">
-	<img src="../img/Stern.png" style="width:2%"> 
-	<img src="../img/Stern.png" style="width:2%"> 
-	<img src="../img/Stern.png" style="width:2%"> 
-	<img src="../img/Stern_dunkel.png" style="width:2%"> </br>
-	</br>
-	Eigene Bewetung abgeben:
-
-	
-	<script>
-
-
-// Bilder bekannt machen
- var bild1 = new Image(); 
- var bild2 = new Image(); 
-
- bild1.src = "../img/Stern.png"; 
- bild2.src = "symb-200-002.gif";
- function Tauschen(Bildname) 
- {
- eval("document['picture'].src = " + Bildname + ".src"); 
- }
-	</script>
-
-		<form>
-		<input type="image" Onclick="Tauschen('bild1')"
-		src="../img/Stern_dunkel.png" alt="Button" style="width:2%" >
-		</form>
- </div>
- 
-<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2770.3336420140995!2d7.749528615777319!3d46.0244911039024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478f367516a34ac3%3A0x79741d3becca00b9!2sHotel+Sunstar!5e0!3m2!1sde!2sde!4v1488808648135"  frameborder="0" style="border:0" allowfullscreen></iframe>
-
+<div id="flip">Click to slide down panel</div>
+<div id="panel">Hello world!</div>
 
 </body>
 </html> 
