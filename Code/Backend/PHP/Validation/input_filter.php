@@ -5,63 +5,59 @@ try
  {  
   
       if(isset($_POST[""]))
-      {  
-        if(isset(($_POST[""])||isset($_POST[""])||isset($_POST[""]||isset($_POST[""])
-        {//Dynamic MQSQL
-            if ($_POST["Reiseziel"]) {
-              $query0 = "tbl_Ort AND tbl_land WHERE Name_Ort = $var OR Name_Land = $var";
+      {
+        $preis = $_POST["Preis"];
+        $ort = $_POST["Ort"];
+        $land = $_POST["Land"];
+        $hName = $_POST["Hotelname"];
+
+        if(!isset($preis, $ort, $land, $hName) {//Dynamic SQL
+            unset($sql);
+            //http://stackoverflow.com/questions/15794179/create-a-dynamic-mysql-query-using-php-variables
+            //example query: User inputs land and ort, SELECT $preis, $ort FROM tbl_Land, tbl_ort
+
+            if (isset($hName)) {
+              $sqlFrom[] = " tbl_hotel";
+              $sqlSelect[] = " Name_Hotel";
+              $sql[] = " Name_Hotel = '$hName' ";
             }
-            if ($_POST["Preis"]) {
-              $query1 = "tbl_zimmer WHERE Preis < $var";
+            if (isset($ort)) {
+              $sqlFrom[] = " tbl_ort";
+              $sql[] = " Name_ort = '$ort' ";
             }
-            if ($_POST[""]) {
-              
+            if (isset($preis)) {
+              $sqlForm[] = " tbl_zimmer";
+              $sqlSelect[] = " Preis";
+              $sql[] = " Preis = '$preis' ";
             }
-            if ($_POST[""]) {
-              
+            if (isset($Land)) {
+              $sqlFrom[] = " tbl_land";
+              $sqlSelect[] = " Name_Land";
+              $sql[] = " Name_Land = '$land' ";
             }
-            if ($_POST[""]) {
-              
+            
+
+            //Final Query
+            if (!empty($sql)) {
+              if($sqlSelect > 1){
+                $sqlSelect = implode(", ", $sqlSelect);
+                //FIX: Last element doesnt need a comma
+              }
+              if($sqlFrom > 1){
+                $sqlFrom = implode(", ", $sqlFrom);
+              }
+              $query = "SELECT $sqlSelect FROM $sqlFrom 'WHERE ' . implode(' AND ', $sql)";
+              $stmt = $connect->prepare($query);//QUERY mit OR/LIKE
+                      $stmt->execute();
             }
+            
         }  else{
-          $errMsg = "Please input a value.";
+          $errMsg = "Please input something to search for.";
         }
-               
-        //-- Defining variables/filters --//
-		$uInput1 = $_POST[""];
-		/*$uPreis = $_POST[""];*/
-		extract(array_map("htmlspecialchars", $_POST), EXTR_OVERWRITE, "u_");
-		$errMsg   
 
-           
-           if(empty($pw) || empty($usr))  
-           {  
-                $errMsg = "";          
-           }  
-           else  
-           {  
-           		//TODO: Check which form fields have values and go through conditions/queries accordingly
-           		if ($uInput1 != "" ) {
-           	        $stmt = $connect->prepare('SELECT Name_Hotel, Name_Land FROM tbl_hotel, tbl_land WHERE Name_Land = :nLand OR Name_Hotel = :nHotel');//QUERY mit OR/LIKE
-                    $stmt->execute(array(
-                 	  ':nLand' => $uInput1,
-                 	  ':nHotel' => $uInput1,
-                 	));
-           		}elseif ($ != "") {//What if user inputs price AND hotelname?
-           			
-           		}elseif (condition) {
-           			
-           		}else{
-           			$errMsg = "No results were found."
-           		}
-
-                    
-           }  
-      }  
- }  
- catch(PDOException $error)  
+  
+catch(PDOException $error)  
  {  
-      $errmsg = $error->getMessage();  
+      $errMsg = $error->getMessage();  
  }  
- ?>  
 ?>
