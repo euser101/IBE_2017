@@ -4,41 +4,50 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../CSS/frontend_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<style> 
-#panel, #flip {
-    padding: 5px;
-    text-align: center;
-    background-color: #e5eecc;
-    border: solid 1px #c3c3c3;
+<ul class="topnav" id="myTopnav">
+			<li><a href="#home">Home</a></li>
+			<li><a href="#Top">Top 10</a></li>
+			<li><a href="#AGB">AGB</a></li>
+			<li><a href="#hilfe">Hilfe</a></li>
+			<li><a href="#konto">Konto</a></li>
+			<li class="icon">
+			<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+			</li>
+		</ul>
+	<script>
+	/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+	function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 }
-
-#panel {
-    padding: 50px;
-    display: none;
-}
-</style>
+	</script>
 <div class="HotelName">
-<h3>Sunstar Style Hotel Zermatt</h3>
+<h3>Baur au Lac</h3>
 </div>
 <div class="slideshow-container">
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="../img/Slide/Bild1.jpg" style="width:100%">
+  <img src="../img/Schweiz/BaurauLac/Hotel1_Bild1_ch.jpg" style="width:100%">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="../img/Slide/Bild2.jpg" style="width:100%">
+  <img src="../img/Schweiz/BaurauLac/Hotel1_Bild2_ch.jpg" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="../img/Slide/Bild3.jpg" style="width:100%">
+  <img src="../img/Schweiz/BaurauLac/Hotel1_Bild3_ch.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
 
@@ -53,12 +62,88 @@
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+<script> 
 
+</script>
+<script src="../JS/Bewertungen.js"></script>
 <script src="../JS/Hotelfeed.js"></script>
+
 </br>
 
-<div id="flip">Click to slide down panel</div>
-<div id="panel">Hello world!</div>
+<div id="flip">Für Beschreibung und Bewertungen -> klicken</div>
 
+<div id="panel">
+<p>Das einzigartig in seinem eigenen Park im Herzen von Zürich gelegene 5-Sterne Hotel Baur au Lac bietet Aussicht auf den Zürichsee und die Alpen sowie elegante und luxuriöse Zimmer und Suiten mit einer kostenfreien Minibar. Sie profitieren zudem von einem preisgekrönten Restaurant, kostenlosem WLAN und einem Fitnesscenter auf der obersten Etage.
+
+2 berühmte Restaurants, eins mit einer Terrasse im idyllischen Garten, eine einladende Bar sowie ein Nachtclub nur für Mitglieder tragen zum Ruhm des Baur au Lac bei. Das Restaurant Pavillon wurde mit 1 Michelin-Stern und 17 Punkten von Gault Millau ausgezeichnet.
+
+Medizinische Massagen und Physiotherapie sind auf Anfrage buchbar und ein Friseur-und Schönheitssalon wartet im Hotel auf Ihren Besuch.
+
+Parkservice, Limousinenservice, ein zweimal täglicher Reinigungsservice und ein 24-Stunden-Concierge tragen im Baur au Lac zu einem gelungenen Aufenthalt bei. Ihr Auto wird auf Wunsch in der Hotelgarage repariert und gewaschen, Sie können Blumen kaufen oder das Angebot der Vinothek durchstöbern.
+
+Das Bankenzentrum am Parade-Platz und die berühmte Einkaufsmeile Bahnhofstrasse sind nur wenige Gehminuten entfernt. 
+
+01. Altstadt - Stadtzentrum ist bei Reisenden, die an einer schönen Altstadt, Shoppen und Spazieren gehen interessiert sind, sehr beliebt.
+
+Laut unabhängiger Gästebewertungen ist das der beliebteste Teil von Zürich.
+
+Die Lage in dieser Unterkunft ist auch eine der besten in Zürich! Gästen gefällt die Lage besser als in anderen Unterkünften in dieser Gegend.
+
+Laut Bewertungen bietet diese Unterkunft das beste Preis-Leistungs-Verhältnis in Zürich. Im Vergleich zu anderen Unterkünften in dieser Stadt bekommen Gäste hier mehr für ihr Geld.
+
+Wir sprechen Ihre Sprache!
+
+Baur au Lac heißt Booking.com-Gäste seit 14. Dez. 2009 willkommen.</p>
+	4/5 Sternen <img src="../img/Stern.png" style="width:2%">
+	<img src="../img/Stern.png" style="width:2%"> 
+	<img src="../img/Stern.png" style="width:2%"> 
+	<img src="../img/Stern.png" style="width:2%"> 
+	<img src="../img/Stern_dunkel.png" style="width:2%"> </br>
+	</br>
+	Eigene Bewetung abgeben:
+
+	
+	<script>
+// Bilder bekannt machen
+ var bild1 = new Image(); 
+ var bild2 = new Image(); 
+
+ bild1.src = "../img/Stern.png"; 
+ bild2.src = "symb-200-002.gif";
+ function Tauschen(Bildname) 
+ {
+ eval("document['picture'].src = " + Bildname + ".src"); 
+ }
+	</script>
+
+		<form>
+		<input type="image" Onclick="Tauschen('bild1')"
+		src="../img/Stern_dunkel.png" alt="Button" style="width:2%" >
+		</form>
+ </div>
+ 
+ 
+ 
+<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.2878112484855!2d8.537169215622262!3d47.36730087916954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a0019bc28f7%3A0xca82706becf5561b!2sBaur+au+Lac!5e0!3m2!1sde!2sch!4v1489413172308" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+<div class="Rooms">
+<table>
+      <tr>
+        <th>Zimmer:</th>
+        <th>Ausstatung:</th>
+        <th>Preis:</th>
+      </tr>
+      <tr>
+        <td> <img src="../img/Schweiz/BaurauLac/Hotel1_Bild3_ch.jpg" style="width:100%" > </td>
+        <td>Doppelbett, Fernseher, Kabelanschluss</td>
+        <td>180fr. pro Nacht</td>
+      </tr>
+      <tr>
+        <td> <img src="../img/Schweiz/BaurauLac/Hotel1_Bild4_ch.jpg" style="width:100%" > </td>
+        <td>Frikadellen</td>
+        <td>200fr. pro Nacht</td>
+      </tr>
+    </table>
+</div>
 </body>
 </html> 
