@@ -3,6 +3,68 @@
 body{
 
 }
+/* ----------------------------------------------------------------------------------------
+--------------------------------------------------NAVBAR-----------------------------------
+-----------------------------------------------------------------------------------------*/
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+    overflow: hidden;
+    background-color: #D8D8D8;
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #2E2E2E;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 23px;
+	font-family: Arial;
+	font-style: italic;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #77AFE1; color:#000000; }
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: none;}
+
+
+
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
 #mask{
 	background-color: rgba(86, 90, 78, 0.83);
 	width: 50%;
@@ -43,10 +105,11 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 600px;
+  max-width: 100%;
   position: relative;
   margin: auto;
-  margin-left:5%;
+  margin-left:20%;
+  margin-right:20%;
 }
 
 /* Next & previous buttons */
@@ -137,5 +200,86 @@ body {font-family: Verdana,sans-serif;margin:0}
 /*Slideshow ende*/
 
 .HotelName h3{
-	margin-left: 5%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+/*Bewertungen*/
+#panel, #flip {
+	margin-left:20%;
+	margin-right:20%;
+    padding: 5px;
+    background-color: #77AFE1;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    display: none;
+}
+/*Google maps*/
+#map{
+	margin-left:20%;
+	margin-right:20%;
+	width:60%;
+	height:500px;
+}
+
+.Rooms{
+	margin-left:20%;
+	margin-right:20%;
+    padding: 5px;
+    background-color: #77AFE1;
+    border: solid 1px #c3c3c3;
+	overflow-y: auto;
+}
+.Rooms table{
+    border-collapse: collapse;
+}
+
+.Rooms table, td, th{ 
+border: 1px solid black; 
+}
+
+.Rooms td, th{
+padding: 20px;
+}
+
+.Rooms::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+.Rooms::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.Top10{
+	margin-left:10%;
+	margin-right:10%;
+    padding: 5px;
+    background-color: rgba(216,216,216, 0.2);
+}
+.Top10 img{
+width:70%;
+}
+.Top10 table{
+    border-collapse: collapse;
+}
+
+.Top10 td{
+padding-left:17px;
+padding-bottom: 17px;
+padding-right:0px;
+padding-top: 17px;
+margin-right: 0px;
+width: 20%;
+height: 310px;
+}
+
+#Top10map{
+	width: 100%;
+	height: 115%;
 }
