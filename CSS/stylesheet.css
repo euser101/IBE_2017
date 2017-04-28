@@ -1,0 +1,303 @@
+/*---------------Liste.html-------------------*/
+
+body{
+	margin:0px;
+	font-family: Arial;
+}
+
+#ListeHotel{
+	margin-left: 10%;
+	margin-right: 10%;
+	/*background-color: rgba(86, 90, 78, 0.6);*/
+	background-color: #D8D8D8;
+	padding: 10px;
+	-webkit-box-shadow: 1.75px 4.25px 10.5px rgba(0,0,0,0.8);
+	-moz-box-shadow: 1.75px 4.25px 10.5px rgba(0,0,0,0.8);
+	box-shadow: 7px 17px 42px rgba(0,0,0,0.8);
+}
+
+.bild_liste{
+	float: left;
+	padding-right: 10px;
+	max-width: 50%;
+	max-height: 10%;
+	width: auto;
+}
+
+#Suche{
+	background-color: #206c9e;
+	padding: 10px;
+	margin-bottom: 50px;
+}
+
+#Sortieren{
+	padding-top: 10px;
+}
+
+
+.Suchkriterien{
+	float: left;
+	padding-right: 15px;
+	padding-bottom:5px;
+}
+
+.Sucheinput{
+	-webkit-box-shadow: 1.75px 4.25px 10.5px rgba(0,0,0,0.8);
+	-moz-box-shadow: 1.75px 4.25px 10.5px rgba(0,0,0,0.8);
+	box-shadow: 1px 4px 10px rgba(0,0,0,0.8);
+}
+
+.buttonSortieren{
+    background-color: whithe;
+    border: 1px solid #C0C0C0;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	margin-bottom: 10px;
+	margin-left:-3px;
+	margin-right:-2px;
+	width: 150px;
+}
+.buttonSortieren:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+.buttonSortieren:hover {
+    background-color: #B4B4B4;
+	
+}
+
+.Hotel{
+	padding-bottom: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+	border-bottom: 1.5px solid;
+	border-bottom-color: #C0C0C0;
+}
+
+
+
+@media screen and (max-width: 680px) {
+	#ListeHotel{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
+	.bild_liste{
+		max-width: 100%;
+	}
+	
+	#Suche{
+	margin-bottom: 0px;
+	}
+	
+	.buttonSortieren {
+		width: 33%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.buttonSortieren {
+    display: block;
+	margin-bottom: 0px;
+	width: 100%;
+	min-width: 150px;
+	}
+	
+}
+
+
+
+/*---------------Home.html-------------------*/
+#mask{
+	text-align: center;
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: rgba(216,216,216,0.75);
+	
+}
+
+#main_image{
+	background-image: url("../img/Hintergrund/london3.jpg");
+	no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*background-attachment: fixed;*/
+
+background-size: 100% !important;
+
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.Vorschlaege{
+	float: left;
+	max-width: 28%;
+	margin: 5px;
+	padding: 0.5%;
+	background-color: #206c9e;
+	box-shadow: 1px 4px 10px rgba(0,0,0,0.8);
+}
+
+.bild_vorschlag{
+	width: 100%;
+}
+
+#Vorschlaege{
+	margin-top: 30px;
+	margin-left: 5%;
+	margin-right: -5%;
+}
+
+
+@media screen and (max-width: 825px) {
+	#main_image{
+		background-image: url("../img/Hintergrund/Eiffelturm2.jpg");
+		
+	}
+	
+	.Vorschlaege {
+    float: left;
+    max-width: 88%;
+    margin: 5px;
+	margin-bottom: 30px;
+    padding: 8px;
+    background-color: #206c9e;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+	#main_image{
+		background-image: url("../img/Hintergrund/Eiffelturm.JPG");
+	}
+	
+
+}
+
+@media screen and (max-width: 500px) {
+	#main_image{
+		background-image: url("../img/Hintergrund/london1.JPG");
+	}
+	
+	.Vorschlaege{
+		padding: 5px;
+		margin-bottom: 20px; 
+	}
+	
+
+}
+
+@media screen and (max-width: 300px) {
+	#main_image{
+		background-image: url("../img/Hintergrund/london2.JPG");
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	
+	
+	
+
+}
+
+#search{
+	margin-top: 10px;
+}
+
+.AuswahlFelder{
+	margin-bottom: 10px;
+	
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 5px 0;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #C0C0C0;
+  border-radius: 1px;
+  border: 1px solid #A9A9A9;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #00001E;
+  height: 18px;
+  width: 18px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #C0C0C0;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  border: 1px solid #00001E;
+  height: 18px;
+  width: 18px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+
+.buttonSuche {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: whtie;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 1.75px 4.25px 10.5px rgba(0,0,0,0.8);
+}
+
+.buttonSuche span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonSuche span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonSuche:hover span {
+  padding-right: 25px;
+}
+
+.buttonSuche:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
