@@ -25,7 +25,7 @@ try {
           if (isset($landHotelOrt)) {
             $rowName[] = "Name_Land, Name_Ort, Name_Hotel";
             $tbl_name[] = "tbl_land, tbl_ort, tbl_hotel";// FIX WHITESPACE tbl_hotel , tbl_zimmer
-            $cond[] = "Name_Land REGEXP '$landHotelOrt|$landHotelOrt' OR Name_Ort REGEXP '$landHotelOrt|$landHotelOrt' OR Name_Hotel REGEXP '$landHotelOrt|$landHotelOrt'";         
+            $cond[] = "pk_ort = fk_ort and pk_land = fk_land and (Name_Land = '$landHotelOrt' OR Name_Ort = '$landHotelOrt' OR Name_Hotel = '$landHotelOrt')";         
           }
           if (isset($preis) && $preis > 0) { 
 
@@ -107,27 +107,42 @@ try {
           //echo $final_con;
 
           //Joining the final query
-          $sql = "SELECT $final_row FROM $final_tbl WHERE $final_con;";
-        
+          $sql = "SELECT count(Pk_hotel), $final_row FROM $final_tbl WHERE $final_con;";
+          
           $stmt = $connect->prepare($sql);
+
+          $sql2 = "SELECT count(Pk_hotel) FROM $final_tbl WHERE $final_con;";
+          
+          $stmt2 = $connect->prepare($sql2);
+
+          $sql3 = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Bild FROM tbl_bild, $final_tbl WHERE $final_con;";
+          
+          $stmt3 = $connect->prepare($sql3);
+
           $stmt->execute();
+          $stmt2->execute();
+          $stmt3->execute();
 
         $result = $stmt->fetchAll();
-        
+        $result2 = $stmt2->fetchAll();
+        $result3 = $stmt3->fetchAll();
+        $x = array_values($result2)[0];
+        $x = (int)$x;
+
 
         //Displaying the result as a table if result isnt empty
-        
         if (empty($result)) {
           $errMsg = "No Results were found. Please check your input.";      
           echo $errMsg;   
         }else{
-          for ($row = 0; $row < 4; $row++) {
+          for ($row = 0; $row < $x; $row++) {
             echo "<p><b>Row number $row</b></p>";
+            echo "<img src='".$result3[$row][4]."'>";
             echo "<ul>";
-            for ($col = 0; $col < 3; $col++) {
-              echo "<li>".$result[$row][$col]."</li>";
-            }
-            echo "</ul>";
+            for ($col = 0; $col < 4; $col++) {
+              echo "<li>".$result3[$row][$col]."</li>";
+            
+}            echo "</ul>";
           }
         }
         
