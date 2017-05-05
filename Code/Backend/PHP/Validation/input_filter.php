@@ -117,6 +117,8 @@ try {
 
           $sql3 = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Bild FROM tbl_bild, $final_tbl WHERE $final_con;";
           
+          echo $sql3;
+          
           $stmt3 = $connect->prepare($sql3);
 
           $stmt->execute();
@@ -136,13 +138,18 @@ try {
           echo $errMsg;   
         }else{
           for ($row = 0; $row < $x; $row++) {
-            echo "<p><b>Row number $row</b></p>";
+            //echo "<p><b>Row number $row</b></p>";
             echo "<img src='".$result3[$row][4]."'>";
             echo "<ul>";
             for ($col = 0; $col < 4; $col++) {
               echo "<li>".$result3[$row][$col]."</li>";
             
-}            echo "</ul>";
+            } echo "</ul>";
+            //$hname = explode("&", $result3[$row][0]);
+
+            //Getting the hotelname and saving it to the url for next query
+            $hname = serialize($result3[$row][0]);
+            echo "<form method='post' action='filter_detail.php?hName=$hname' name='adv_search'><input type='submit' name='hotelname' value='More Information'></form>";
           }
         }
         
