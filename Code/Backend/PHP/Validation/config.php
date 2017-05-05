@@ -4,7 +4,7 @@
 define('dbhost', 'localhost');
 define('dbuser', 'root');
 define('dbpass', '');
-define('dbname', 'db_IBEv4');
+define('dbname', 'db_IBEv5');
 define('DB_ENCODING', 'utf8');
 
 // Connecting database

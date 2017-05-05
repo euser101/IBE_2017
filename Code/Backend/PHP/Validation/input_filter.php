@@ -24,8 +24,8 @@ try {
           //Building the query w regex
           if (isset($landHotelOrt)) {
             $rowName[] = "Name_Land, Name_Ort, Name_Hotel";
-            $tbl_name[] = "tbl_land, tbl_ort, tbl_hotel";// FIX WHITESPACE tbl_hotel , tbl_zimmer
-            $cond[] = "pk_ort = fk_ort and pk_land = fk_land and (Name_Land = '$landHotelOrt' OR Name_Ort = '$landHotelOrt' OR Name_Hotel = '$landHotelOrt')";         
+            $tbl_name[] = "tbl_land, tbl_ort, tbl_hotel, tbl_bild";// FIX WHITESPACE tbl_hotel , tbl_zimmer
+            $cond[] = "pk_ort = fk_ort and pk_land = fk_land and (Name_Land LIKE '%$landHotelOrt%' OR Name_Ort LIKE '%$landHotelOrt%' OR Name_Hotel LIKE '%$landHotelOrt%') AND FK_Hotel = PK_Hotel";         
           }
           if (isset($preis) && $preis > 0) { 
 
@@ -115,7 +115,7 @@ try {
           
           $stmt2 = $connect->prepare($sql2);
 
-          $sql3 = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Bild FROM tbl_bild, $final_tbl WHERE $final_con;";
+          $sql3 = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Bild FROM $final_tbl WHERE $final_con;";
           
 
           $stmt3 = $connect->prepare($sql3);
@@ -130,9 +130,11 @@ try {
         $x = array_values($result2)[0];
         $x = (int)$x;
 
+      
 
+        
         //Displaying the result as a table if result isnt empty
-        if (empty($result)) {
+        if (empty($result) | empty($result2) | empty($result3)){
           $errMsg = "No Results were found. Please check your input.";      
           echo $errMsg;   
         }else{
