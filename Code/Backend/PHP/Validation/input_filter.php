@@ -117,8 +117,7 @@ try {
 
           $sql3 = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Bild FROM tbl_bild, $final_tbl WHERE $final_con;";
           
-          echo $sql3;
-          
+
           $stmt3 = $connect->prepare($sql3);
 
           $stmt->execute();
