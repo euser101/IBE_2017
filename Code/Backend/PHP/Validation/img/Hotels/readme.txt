@@ -1,0 +1,1 @@
+Die ersten beiden Fotos beziehen sich auf das Hotel, die anderen auf das Zimmer. Im Ordner des Hotels befindet sich zudem der Ort des Hotels und eine Beschreibung zum Hotel.  

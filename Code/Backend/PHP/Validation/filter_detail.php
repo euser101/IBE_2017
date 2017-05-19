@@ -4,7 +4,7 @@
   require "config.php";
 	try {  
     	$hName = unserialize($_GET["hName"]);
-		$sql = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Beschreibung, Bild, Location FROM tbl_hotel, tbl_ort, tbl_bild WHERE Name_Hotel='$hName' AND FK_Hotel = PK_Hotel";
+		$sql = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Beschreibung, Bild, Location FROM tbl_hotel, tbl_ort, tbl_bild, tbl_zimmer WHERE Name_Hotel='$hName' AND FK_Hotel = PK_Hotel";
           
      
         $stmt = $connect->prepare($sql);
