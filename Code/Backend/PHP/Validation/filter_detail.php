@@ -3,14 +3,15 @@
 
   require "config.php";
 	try {  
-    	$hName = unserialize($_GET["hName"]);
-		$sql = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Beschreibung, Bild, Location FROM tbl_hotel, tbl_ort, tbl_bild WHERE Name_Hotel='$hName' AND FK_Hotel = PK_Hotel";
+
+    $hName = unserialize($_GET["hName"]);
+		$sql = "SELECT Name_Hotel, Preis, Sterne, Bewertung, Beschreibung, Bild, Location FROM tbl_hotel, tbl_ort, tbl_bild, tbl_zimmer WHERE Name_Hotel='$hName' AND FK_Hotel = PK_Hotel";
           
-     
         $stmt = $connect->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
-        
+          
+          var_dump($result);
         $x = array_values($result)[0];
         $x = (int)$x;
         if (empty($result)) {
@@ -21,7 +22,8 @@
             //echo "<p><b>Row number $row</b></p>";
 
             echo "<img src='".$result[$row][5]."'>";
-            echo "<iframe id='Top10map' src='".$result[$row][6]."'frameborder='0 style='border:0' allowfullscreen></iframe>";
+
+            echo "<iframe id='Top10map' src='".$result[$row][1]."'frameborder='0 style='border:0' allowfullscreen></iframe>";
             echo "<ul>";
             
             for ($col = 0; $col < 5; $col++) {
