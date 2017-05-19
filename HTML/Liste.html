@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="..\CSS\stylesheet.css" rel="stylesheet">
+	 	<link href="..\CSS\stylesheet.css" rel="stylesheet">
  	 <script src="copyright_update.js"></script>
 	<link href="stylesheet.css" rel="stylesheet">
     <title>Suche</title>
@@ -16,11 +17,11 @@
   
 	
 			<ul class="topnav" id="myTopnav">
-			<li><a href="Home.html">Home</a></li>
-			<li><a href="#Top">Top 10</a></li>
-			<li><a href="#AGB">AGB</a></li>
-			<li><a href="#hilfe">Hilfe</a></li>
-			<li><a href="#konto">Konto</a></li>
+			<li><a href="Home.html"><img style ="padding-top: 10px;" class="logo" src="..\img/Logo/logo.png" alt="home"/></a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="Top10.html">Top 10</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="AGB.html">AGB</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#hilfe">Hilfe</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#konto">Konto</a></li>
 			<li class="icon">
 			<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
 			</li>
@@ -157,4 +158,29 @@ ul.topnav li.icon {display: none;}
 	<!--Including the footer-->
 	<?php include "../HTML/footer.html"; ?>
   </body>
+  
+  	<footer>
+	<article>
+	&copy <script>refreshCopyright();</script> IBE_2017 
+	<br>
+	Website is under construction <br>Change Language | <a href="help.html">Help</a>
+	</article>
+</footer>
+<style>
+/*Styling the footer*/
+footer {
+	position: scroll;
+	display: block;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #1D4D77;
+	padding: 2.5%;
+	width: 100%;
+	margin-top: 5%;
+
+}
+/*End of footerstyle*/
+</style>
 </html>

@@ -4,15 +4,16 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../CSS/frontend_style.css">
+		<link href="..\CSS\stylesheet.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 <ul class="topnav" id="myTopnav">
-			<li><a href="#home">Home</a></li>
-			<li><a href="#Top">Top 10</a></li>
-			<li><a href="#AGB">AGB</a></li>
-			<li><a href="#hilfe">Hilfe</a></li>
-			<li><a href="#konto">Konto</a></li>
+			<li><a href="Home.html"><img style ="padding-top: 10px;" class="logo" src="..\img/Logo/logo.png" alt="home"/></a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="Top10.html">Top 10</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="AGB.html">AGB</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#hilfe">Hilfe</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#konto">Konto</a></li>
 			<li class="icon">
 			<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
 			</li>
@@ -70,7 +71,7 @@
 
 </br>
 
-<div id="flip">Für Beschreibung und Bewertungen -> klicken</div>
+<div id="flip">Für Beschreibung und Bewertungen &#x2192; klicken</div>
 
 <div id="panel">
 <p>Das einzigartig in seinem eigenen Park im Herzen von Zürich gelegene 5-Sterne Hotel Baur au Lac bietet Aussicht auf den Zürichsee und die Alpen sowie elegante und luxuriöse Zimmer und Suiten mit einer kostenfreien Minibar. Sie profitieren zudem von einem preisgekrönten Restaurant, kostenlosem WLAN und einem Fitnesscenter auf der obersten Etage.
@@ -147,4 +148,29 @@ Baur au Lac heißt Booking.com-Gäste seit 14. Dez. 2009 willkommen.</br>
     </table>
 </div>
 </body>
+
+	<footer>
+	<article>
+	&copy <script>refreshCopyright();</script> IBE_2017 
+	<br>
+	Website is under construction <br>Change Language | <a href="help.html">Help</a>
+	</article>
+</footer>
+<style>
+/*Styling the footer*/
+footer {
+	position: scroll;
+	display: block;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #1D4D77;
+	padding: 2.5%;
+	width: 100%;
+	margin-top: 5%;
+
+}
+/*End of footerstyle*/
+</style>
 </html> 

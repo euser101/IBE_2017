@@ -22,6 +22,8 @@ body{
 	max-width: 50%;
 	max-height: 10%;
 	width: auto;
+	margin: 15px;
+	
 }
 
 #Suche{
@@ -88,6 +90,7 @@ body{
 	
 	.bild_liste{
 		max-width: 100%;
+		margin: 0px;
 	}
 	
 	#Suche{
@@ -214,6 +217,7 @@ background-size: 100% !important;
 
 .AuswahlFelder{
 	margin-bottom: 10px;
+	border: 2px red;
 	
 }
 
@@ -298,6 +302,10 @@ input[type=range]::-moz-range-thumb {
 .buttonSuche:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.logo{
+	height:50px;
 }
 
 

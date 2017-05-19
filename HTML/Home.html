@@ -15,11 +15,11 @@
   <body id="start">
   
 	<ul class="topnav" id="myTopnav">
-			<li><a href="#home">Home</a></li>
-			<li><a href="#Top">Top 10</a></li>
-			<li><a href="#AGB">AGB</a></li>
-			<li><a href="#hilfe">Hilfe</a></li>
-			<li><a href="#konto">Konto</a></li>
+			<li><a href="#home"><img style ="padding-top: 10px; " class="logo" src="..\img/Logo/logo.png" alt="home"/></a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="Top10.html">Top 10</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="AGB.html">AGB</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#hilfe">Hilfe</a></li>
+			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#konto">Konto</a></li>
 			<li class="icon">
 			<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
 			</li>
@@ -52,13 +52,15 @@ ul.topnav li a {
     display: inline-block;
     color: #2E2E2E;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0px 16px;
     text-decoration: none;
     transition: 0.3s;
-    font-size: 23px;
+    font-size: 32px;
 	font-family: Arial;
-	font-style: italic;
+	/*font-style: italic;*/
+	text-align: right;
 }
+
 /* Change background color of links on hover */
 ul.topnav li a:hover {background-color: #77AFE1; color:#000000; }
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
@@ -96,7 +98,7 @@ ul.topnav li.icon {display: none;}
 <div id="main_image">
 <div id="mask">
 	<!--Eingabe Reiseziel-->
-	<form class="AuswahlFelder" action="#.php">
+	<form class="k" action="#.php">
 	Reiseziel<br>
 	<input type="text" name="Reiseziel" placeholder="Land, Hotelname">
 	</form>
@@ -171,6 +173,76 @@ ul.topnav li.icon {display: none;}
 	</select>
 	</form>
 	
+	
+	
+	
+	<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+<script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
+
+<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="../CSS/Style.css" />
+
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="k">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
+     <div class="form-group ">
+      <label class="control-label col-sm-2 requiredField" for="date">
+       Date<br>
+      </label>
+      <div class="col-sm-10">
+       <div class="input-group">
+        <div class="input-group-addon">
+         <i class="fa fa-calendar">
+         </i>
+        </div>
+        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+       </div>
+      </div>
+     </div>
+     <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+       <input name="_honey" style="display:none" type="text"/>
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+</script>
+	
+	
+	
 	<!--Knopf Suche-->
 	<a href="Liste.html"><button class="buttonSuche" style="vertical-align:middle"><span>Suche </span></button></a>
 	
@@ -200,7 +272,53 @@ ul.topnav li.icon {display: none;}
 		<P>ab CHF180</p>
 	</div>
 </div>
+
+
+</body>
 	<!--Including the footer-->
-	<?php include "../HTML/footer.html"; ?>
-  </body>
+
+
+  <title>Footer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../JS/copyright_update.js"></script>
+
+<!--<script src="myscript.js">-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+</script>
+<![endif]-->
+
+
+
+
+<footer>
+	<article>
+	&copy <script>refreshCopyright();</script> IBE_2017 
+	<br>
+	Website is under construction <br>Change Language | <a href="help.html">Help</a>
+	</article>
+</footer>
+<style>
+/*Styling the footer*/
+footer {
+	position: scroll;
+	display: block;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #1D4D77;
+	padding: 2.5%;
+	width: 100%;
+	margin-top: 35%;
+
+}
+/*End of footerstyle*/
+</style>
+
+
+
+
+ 
 </html>
