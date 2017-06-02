@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="..\CSS\stylesheet.css" rel="stylesheet">
- 	 <script src="copyright_update.js"></script>
+ 	 <script src="..\JS\copyright_update.js"></script>
 	
     <title>Home</title>
-
-    <!--<link rel="import" href="navbar.html">-->
-
 
   </head>
   <body id="start">
@@ -60,7 +57,6 @@ ul.topnav li a {
 	/*font-style: italic;*/
 	text-align: right;
 }
-
 /* Change background color of links on hover */
 ul.topnav li a:hover {background-color: #77AFE1; color:#000000; }
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
@@ -90,93 +86,34 @@ ul.topnav li.icon {display: none;}
     text-align: left;
   }
 }
-	</style>
+</style>
   
   
-  
-  	<?php include "../HTML/navbar.html"; ?>
 <div id="main_image">
 <div id="mask">
-	<!--Eingabe Reiseziel-->
-	<form class="k" action="#.php">
-	Reiseziel<br>
-	<input type="text" name="Reiseziel" placeholder="Land, Hotelname">
-	</form>
-	
-	<!--Preis angabe-->
-	<form class="AuswahlFelder" >
-	Preis<br>
-	<input id="RangePreis" type="range" min="100" max="500" step="10" />
-	</form>
-	<!--An- und Abreise-->
-	<form class="AuswahlFelder">
-	<label for="gebdat">
-    Anreise<br> 
-    <input type="date" id="gebdat">
-	</label><br>
-	</form>
-	
-	<form  class="AuswahlFelder">
-	<label for="gebdat">
-    Abreise<br> 
-    <input type="date" id="gebdat">
-	</label>
-	</form>
-	
-	
-	
-	<!--Anzahl Zimmer-->
-	<form class="AuswahlFelder" action="#.php">
-	Zimmer<br>
-	<select name="zimmer">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9+">9+</option>
-	</select>
-	</form>
-	<form class="AuswahlFelder" action="#.php">
-	
-	<!--Anzahl Erwachsene-->
-	Erwachsene<br>
-	<select name="erwachsene">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-	</select>
-	</form>
-	
-	<!--Anzahl Kinder-->
-	<form class="AuswahlFelder" action="#.php">
-	Kinder(0-17)<br>
-	<select name="zimmer">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-	</select>
-	</form>
-	
-	
-	
-	
-	<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+
+<!--Main Form-->
+<form method="post" action="../input_filter.php">
+		<!--Eingabe Reiseziel-->
+		Reiseziel<br>
+		<input type="text" name="reise_z" placeholder="Land, Hotelname" class="k">	
+		
+		<!--Preis angabe-->	
+		Preis<br>
+		<input id="RangePreis" type="range" name="range_p" min="100" max="500" step="10" class="AuswahlFelder">
+
+		<!--An- und Abreise-->
+		<label for="gebdat">
+	    Anreise<br> 
+	    <input type="date" name="anreise" id="gebdat" class="AuswahlFelder">
+		</label><br>
+				
+		<label for="gebdat">
+	    Abreise<br> 
+	    <input type="date" name="abreise" id="gebdat" class="AuswahlFelder">
+		</label>				
+			
+<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
 <!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
@@ -243,11 +180,15 @@ ul.topnav li.icon {display: none;}
 	
 	
 	
-	<!--Knopf Suche-->
-	<a href="Liste.html"><button class="buttonSuche" style="vertical-align:middle"><span>Suche </span></button></a>
+	<!--Knopf Suche Ergebnisse auf Liste.html-->
+	<a href="../input_filter.php"><button class="buttonSuche" style="vertical-align:middle"><span>Suche </span></button></a>
 	
+
 </div>
 </div>
+
+</form>
+<!--End Main Form -->
 
 <div id="Vorschlaege">
 	<div class="Vorschlaege">
@@ -275,22 +216,16 @@ ul.topnav li.icon {display: none;}
 
 
 </body>
-	<!--Including the footer-->
-
-
+<!--Including the footer-->
   <title>Footer</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../JS/copyright_update.js"></script>
-
 <!--<script src="myscript.js">-->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 </script>
 <![endif]-->
-
-
-
 
 <footer>
 	<article>
@@ -316,9 +251,4 @@ footer {
 }
 /*End of footerstyle*/
 </style>
-
-
-
-
- 
 </html>
