@@ -6,10 +6,25 @@ try {
       header("Cache-Control: max-age=600");
       if(isset($_POST["search"])) {
         //Declaring vars
+          $sortBy="";
         $landHotelOrt = $_POST["reise_z"];
         $preis = $_POST["range_p"];
         $anr = $_POST["anreise"];
         $abr = $_POST["abreise"];
+        if(isset($_POST["sortByP"])){
+            $sortP = $_POST["sortByP"];
+            $sortBy = "order by Preis";
+        }
+        if(isset($_POST["sortByS"])){
+           $sortS = $_POST["sortByS"];
+           $sortBy = "order by Sterne desc";
+        }
+        if(isset($_POST["sortByB"])){
+          $sortB = $_POST["sortByB"];
+          $sortBy = "order by Bewertung desc";
+        }
+        
+        
         
         //Filtering out the Query to get dynamic SQL
         if( isset($landHotelOrt) || isset($preis) || isset($anr) || isset($abr) || isset($zimmer) || isset($erw) || isset($kin) ){ 
@@ -94,6 +109,8 @@ try {
            }
 
         }
+            
+
         $final_row = implode(" ", $rowName);
         $final_tbl = implode(" ", $tbl_name);
         $final_con = implode(" ", $cond);     
@@ -106,7 +123,7 @@ try {
          }
 
         $countSQL = "SELECT count(PK_Hotel) FROM tbl_land, tbl_ort, tbl_hotel WHERE pk_ort = fk_ort and pk_land = fk_land and (Name_Land LIKE '%$landHotelOrt%' OR Name_Ort LIKE '%$landHotelOrt%' OR Name_Hotel LIKE '%$landHotelOrt%') $count_preis;";
-        $mainSQL = "SELECT $final_row FROM $final_tbl WHERE $final_con GROUP BY Name_Hotel;";
+        $mainSQL = "SELECT $final_row FROM $final_tbl WHERE $final_con GROUP BY Name_Hotel $sortBy;";
         
         //PDO Sql queries     
         $stmt0 = $connect->prepare($countSQL);
@@ -142,16 +159,17 @@ try {
               <body>
               
               
-                  <ul class='topnav' id='myTopnav'>
-                  <li><a href='Home.html'><img style ='padding-top: 10px;' class='logo' src='..\img/Logo/logo.png' alt='home'/></a></li>
-                  <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='Top10.html'>Top 10</a></li>
-                  <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='AGB.html'>AGB</a></li>
-                  <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='#hilfe'>Hilfe</a></li>
-                  <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='#konto'>Konto</a></li>
-                  <li class='icon'>
-                  <a href='javascript:void(0);' onclick='myFunction()'>&#9776;</a>
-                  </li>
-                </ul>
+                <ul class='topnav' id='myTopnav'>
+            <li><img style ='padding-top: 10px; ' class='logo' src='img/Logo/Logo.png' alt='home'/></li>
+            <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='#home'>Home</a></li>
+			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/Top10.html'>Top 10</a></li>
+			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/AGB.html'>AGB</a></li>
+			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/#Hilfe.html'>Hilfe</a></li>
+			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/#Konto.html'>Konto</a></li>
+			<li class='icon'>
+			<a href='javascript:void(0);' onclick='myFunction()'>&#9776;</a>
+			</li>
+		</ul>
               <script>
                     /* Toggle between adding and removing the 'responsive' class to topnav when the user clicks on the icon */
                     function myFunction() {
@@ -161,7 +179,13 @@ try {
                       } else {
                           x.className = 'topnav';
                       }
-                  }                
+                  }  
+                   function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+                    function updateRangeInput(val) {
+          document.getElementById('RangePreis').value=val; 
+        }
                </script>
             <style>
             /* Remove margins and padding from the list, and add a black background color */
@@ -243,51 +267,52 @@ try {
             .closebtn:hover {
                 color: black;
             }
-
+          
           </style>
               
-            <div id='Suche'>
+            <div id='main_image'>
+            <div id='mask'>
               <!--Eingabe Reiseziel-->
-            <form method='POST' class='Suchkriterien' action=''>
-                Reiseziel<br>
-                <input class='Sucheinput' type='text' name='reise_z' placeholder='Land, Hotelname'>
-                </form>
-                
-                <!--Preis angabe-->
-                Preis<br>
-                <input class='Suchkriterien' name='range_p' id='slider1' type='range' min='100' max='500' step='10' />
-                
-                <!--An- und Abreise-->
-                <br>
-                <br>
-                <label for='gebdat'>
-                  Anreise<br>
-                  <input type='date' id='gebdat' name='anreise'>
-                </label>
-                
-                <br>
-                <label for='gebdat'>
-                  Abreise<br> 
-                  <input type='date' id='gebdat' name='abreise'>
-                </label>
-                <p><br></p>
-                
-                <!--Knopf Home-->
-                <a href='#display more input types'>  <button style='width: 150px; vertical-align:middle;' class='buttonSuche'><span>Mehr Optionen </span></button></a>
-                
-                <!--Knopf Suche-->
-                <button class='buttonSuche' name='search' style='width: 150px; vertical-align:middle;'><span>Suche </span></button>
+    <form method='post' class='AuswahlFelder'action='input_filter.php'>
+	<!--Eingabe Reiseziel-->
+	Reiseziel<br>
+	<input type='text' name='reise_z' placeholder='Land, Hotelname'>
+	<br>
+	
+	<!--Preis angabe-->
+	Preis<br>
+	<input name='range_p' id='RangePreis' type='range' min='0' max='500' step='10' onchange='updateTextInput(this.value);' /> 
+    <input type='text' id='textInput' value='' size='1' onchange='updateRangeInput(this.value);'>
+    <br>
+    <br>
+	<!--An- und Abreise-->
+	<label for='gebdat'>
+    Anreise<br> 
+    <input type='date' id='gebdat' name='anreise'>
+	</label>
+	<br>
+	
+	<label for='gebdat'>
+    Abreise<br> 
+    <input type='date' id='gebdat' name='abreise'>
+	</label>
+	<br>
+	
+		
 
+	<br>
+    Sortieren nach: <br>
+  <input type='radio' name='sortByP' value='Preis' class='sort'>Preis<br>
+  <input type='radio' name='sortByS' value='Sterne'class='sort'> Sterne<br>
+  <input type='radio' name='sortByB' value='Bewertung'class='sort'> Bewertung
+  <br>
+	<!--Knopf Suche-->
+	<button class='buttonSuche' name='search' style='vertical-align:middle'><span>Suche </span></button>
 
-                <div id='Sortieren'>
-                  <p>Sortieren nach:</p>
-                  <button class='buttonSortieren' onclick='srtName()'>Name</button>
-                  <button class='buttonSortieren' onclick='srtPrice()'>Preis</button>
-                  <button class='buttonSortieren' onclick='srtReview()'>Bewertung</button>
-                </div>
-              </div> 
-            </form>";
-
+</form>
+</div>
+</div>
+";
         $endHTML = "<footer>
             <article>
             &copy <script>refreshCopyright();</script> IBE_2017 
@@ -344,6 +369,7 @@ try {
           //Start HTML
           echo $startHTML;
 
+              
             //Format count of found query
             if (isset($landHotelOrt)) {
               echo "<div class='alert success'>";
