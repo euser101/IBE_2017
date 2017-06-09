@@ -23,9 +23,7 @@ try {
           $sortB = $_POST["sortByB"];
           $sortBy = "order by Bewertung desc";
         }
-        
-        
-        
+               
         //Filtering out the Query to get dynamic SQL
         if( isset($landHotelOrt) || isset($preis) || isset($anr) || isset($abr) || isset($zimmer) || isset($erw) || isset($kin) ){ 
           
@@ -160,7 +158,7 @@ try {
               
               
                 <ul class='topnav' id='myTopnav'>
-            <li><img style ='padding-top: 10px; ' class='logo' src='img/Logo/Logo.png' alt='home'/></li>
+            <li><img style ='padding-top: 10px; ' class='logo' src='img/Logo.png' alt='home'/></li>
             <li><a style ='padding-top: 15px; padding-bottom: 15px;' href='#home'>Home</a></li>
 			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/Top10.html'>Top 10</a></li>
 			<li><a style ='padding-top: 15px; padding-bottom: 15px;' href='HTML/AGB.html'>AGB</a></li>
