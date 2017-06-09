@@ -9,8 +9,7 @@
   </head>
 <body id="start">
 	<ul class="topnav" id="myTopnav">
-            <li><img style ="padding-top: 10px; " class="logo" src="img/Logo/Logo.png" alt="home"/></li>
-            <li><a style ="padding-top: 15px; padding-bottom: 15px;" href="#home">Home</a></li>
+			<li><a href="#home"><img style ="padding-top: 10px; " class="logo" src="..\img/Logo/logo.png" alt="home"/></a></li>
 			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="HTML/Top10.html">Top 10</a></li>
 			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="HTML/AGB.html">AGB</a></li>
 			<li><a style ="padding-top: 15px; padding-bottom: 15px;" href="HTML/#Hilfe.html">Hilfe</a></li>
@@ -29,12 +28,6 @@
         x.className = "topnav";
     }
 }
-    function updateTextInput(val) {
-          document.getElementById('textInput').value=val; 
-        }
-    function updateRangeInput(val) {
-          document.getElementById('RangePreis').value=val; 
-        }
 </script>
 
 <style>
@@ -105,10 +98,9 @@ ul.topnav li.icon {display: none;}
 	
 	<!--Preis angabe-->
 	Preis<br>
-	<input name="range_p" id="RangePreis" type="range" min="0" max="500" step="10" onchange="updateTextInput(this.value);" /> 
-    <input type="text" id="textInput" value="" size="1" onchange="updateRangeInput(this.value);">
-    <br>
-    <br>
+	<input name="range_p" id="RangePreis" type="range" min="0" max="500" step="10" />
+	<br>
+
 	<!--An- und Abreise-->
 	<label for="gebdat">
     Anreise<br> 
@@ -121,18 +113,15 @@ ul.topnav li.icon {display: none;}
     <input type="date" id="gebdat" name="abreise">
 	</label>
 	<br>
+	
+		
+
 	<br>
-     Sortieren nach: <br>
-  <input type='radio' name='sortByP' value='Preis' class='sort'>Preis<br>
-  <input type='radio' name='sortByS' value='Sterne'class='sort'> Sterne<br>
-  <input type='radio' name='sortByB' value='Bewertung'class='sort'> Bewertung
-  <br>
 	<!--Knopf Suche-->
 	<button class="buttonSuche" name="search" style="vertical-align:middle"><span>Suche </span></button>
-
+</div>
+</div>
 </form>
-</div>
-</div>
 <!--End Main Form -->
 <div id="Vorschlaege">
 	<div class="Vorschlaege">
@@ -140,7 +129,7 @@ ul.topnav li.icon {display: none;}
 		<h2>Villa Marie Saint Tropez</h2>
 		<p>5 Sterne</p>
 		<p>4.5/5</p>
-		<p>ab CHF180</p>
+		<P>ab CHF180</p>
 	</div>
 	<div class="Vorschlaege">
 		<img class="bild_vorschlag" src="img/hotels/Hotel4_Bild2_fr.jpg" alt="home"/>
