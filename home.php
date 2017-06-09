@@ -90,7 +90,7 @@ ul.topnav li.icon {display: none;}
 <div id="mask">
 
 <!-- Main Form -->
-<form method="post" class="AuswahlFelder" action="input_filter.php" class="AuswahlFelder">
+<form method="post" class="AuswahlFelder" action="input_filter.php">
 	<!--Eingabe Reiseziel-->
 	Reiseziel<br>
 	<input type="text" name="reise_z" placeholder="Land, Hotelname">
